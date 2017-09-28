@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-
+﻿
 namespace WebApplication8
 {
     using System.Web.Http;
-    using System.Web.Routing;
 
+    /// <summary>
+    /// The global.
+    /// </summary>
     public class Global : System.Web.HttpApplication
     {
-
+        /// <summary>
+        /// The application_ start.
+        /// </summary>
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);

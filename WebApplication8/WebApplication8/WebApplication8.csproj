@@ -74,8 +74,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bootstrap.css" />
-    <Content Include="Default.html" />
+    <Content Include="Styles\bootstrap.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -86,13 +85,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
-    <Content Include="index.js" />
+    <Content Include="Views\index.html" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeController.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
