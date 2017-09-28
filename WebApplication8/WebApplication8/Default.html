@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myapp">
+<head>
+    <title>My Client</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!--<script src="Scripts/angular.min.js"></script>-->
+    <!--<script src="Scripts/angular-route.min.js"></script>-->
+
+</head>
+<body ng-controller="EmployeeController">
+
+    <div>
+
+        Search <input type="text" ng-model="search.$" />
+        <br /> <br />
+
+        <table class="table">
+
+            <tr>
+                <th class="col-xs-1">Id</th>
+                <th class="col-xs-1">Name</th>
+                <th class="col-xs-1">Age</th>
+                <th class="col-xs-1">City</th>
+            </tr>
+
+            <tr ng-repeat="product in result | filter:search">
+                <td>{{product.Id}}</td>
+                <td>{{product.Name}}</td>
+                <td>{{product.Age}}</td>
+                <td>{{product.City}}</td>
+                <td><a class="btn btn-primary" ng-click="remove(item)">Delete</a></td>
+            </tr>
+
+        </table>
+
+        <form ng-submit="addEntry()">
+            Id:<input type="number" ng-model="newData.Id" required />
+            Name:<input type="text" ng-model="newData.Name" required />
+            Age:<input type="number" ng-model="newData.Age" required />
+            City:<input type="text" ng-model="newData.City" required />
+            <input type="submit" class="btn btn-primary" value="add" />
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+        var myapp = angular.module('myapp', []);
+        myapp.controller('EmployeeController',
+            function ($scope, $http) {
+                $http.get('http://localhost:12869/api/Employee').
+                    success(function (response) {
+                        $scope.result = response;
+                    });
+            });
+    </script>
+
+</body>
+</html>
